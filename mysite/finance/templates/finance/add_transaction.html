@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Add Transaction{% endblock %}
 {% block content %}
-<h2 class="text-muted-blue">Add Transaction</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<a href="{% url 'add_category' %}" class="btn btn-link mt-2">Add Category</a>
+  <div class="mx-auto p-2" style="width: 300px;">
+    <h2 class="text-muted-blue">Add Transaction</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-outline-secondary mt-4">Submit</button>
+    </form>
+  </div>
 {% endblock %}

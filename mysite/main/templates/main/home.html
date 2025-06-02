@@ -3,11 +3,13 @@
 {% block title %}Welcome{% endblock %}
 {% block content %}
 <div class="hero">
-  <h1 class="display-4 fw-bold">Welcome to Finance Assistant</h1>
-  <p class="lead">Your path to financial clarity starts here.</p>
   {% if user.is_authenticated %}
-    <a href="{% url 'dashboard' %}" class="btn btn-light mt-3">View Dashboard</a>
+  <h1 class="display-4 fw-bold">Welcome {{ user.username }}!</h1>
+  <p class="lead">This is your path to financial clarity.</p>
+    <a href="{% url 'dashboard' %}" class="btn btn-outline-dark mt-4">View Dashboard</a>
   {% else %}
+    <h1 class="display-4 fw-bold">Welcome to Finance Assistant</h1>
+    <p class="lead">Your path to financial clarity starts here.</p>
     <a href="{% url 'login' %}" class="btn btn-light mt-3">Login</a>
     <a href="{% url 'signup' %}" class="btn btn-light mt-3">Sign Up</a>
   {% endif %}
@@ -17,20 +19,23 @@
 <div class="row text-center mt-5">
   <div class="col-md-4 mb-4">
     <div class="card p-4">
-      <h5 class="text-muted-blue">Track Spending</h5>
+      <h5 class="text-muted-blue">Create Your Own Categories</h5>
       <p>Easily log your income and expenses.</p>
+      <a href="{% url 'add_category' %}" class="btn btn-light mt-3">Add Category</a>
     </div>
   </div>
   <div class="col-md-4 mb-4">
     <div class="card p-4">
-      <h5 class="text-muted-blue">Visualize Budgets</h5>
+      <h5 class="text-muted-blue">Add Transactions</h5>
       <p>Use graphs to understand your finances better.</p>
+      <a href="{% url 'add_transaction' %}" class="btn btn-light mt-3">Add Transaction</a>
     </div>
   </div>
   <div class="col-md-4 mb-4">
     <div class="card p-4">
-      <h5 class="text-muted-blue">Stay in Control</h5>
+      <h5 class="text-muted-blue">Update Your Current Balance</h5>
       <p>Keep your balance up-to-date and goal-focused.</p>
+      <a href="{% url 'update_balance' %}" class="btn btn-light mt-3">Update Balance</a>
     </div>
   </div>
 </div>

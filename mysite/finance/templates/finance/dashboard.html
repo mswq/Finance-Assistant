@@ -2,6 +2,12 @@
 {% block title %}Dashboard{% endblock %}
 {% block content %}
 <h2 class="text-muted-blue">Dashboard</h2>
+<div class="mb-3 text-center">
+  <a href="?range=week" class="btn btn-soft {% if view_range == 'week' %}active{% endif %}">This Week</a>
+  <a href="?range=month" class="btn btn-soft {% if view_range == 'month' %}active{% endif %}">This Month</a>
+  <a href="?range=all" class="btn btn-soft {% if view_range == 'all' %}active{% endif %}">All Time</a>
+</div>
+
 <p><strong>Balance:</strong> ${{ balance }}</p>
 <p><strong>Total Income:</strong> ${{ income }}</p>
 <p><strong>Total Expense:</strong> ${{ expense }}</p>
@@ -19,6 +25,7 @@
 <img src="data:image/png;base64, {{graph}}" class="img-fluid rounded mb-3"/>
 <img src="data:image/png;base64, {{pie_graph}}" class="img-fluid rounded"/>
 
-<a href="{% url 'add_transaction' %}" class="btn btn-success mt-4 me-2">Add Transaction</a>
+<a href="{% url 'add_category' %}" class="btn btn-outline-secondary mt-4">Add Category</a>
+<a href="{% url 'add_transaction' %}" class="btn btn-outline-secondary mt-4">Add Transaction</a>
 <a href="{% url 'update_balance' %}" class="btn btn-outline-secondary mt-4">Update Balance</a>
 {% endblock %}

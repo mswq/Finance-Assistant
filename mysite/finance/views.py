@@ -4,6 +4,7 @@ from .models import Transaction, Category, UserProfile
 from collections import defaultdict
 import matplotlib.pyplot as plt
 import base64
+from datetime import date, timedelta
 import io
 
 def add_transaction(request):
@@ -44,11 +45,24 @@ def update_balance(request):
 
 def dashboard(request):
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
+    view_range = request.GET.get('range', 'all')
+    today = date.today()
+
+    if view_range == "week":
+        start_date = today - timedelta(days=7)
+    elif view_range == "month":
+        start_date = today.replace(day=1)
+    else:
+        start_date = None
+
+    if start_date:
+        transactions = Transaction.objects.all().filter(user=request.user, date__gte=start_date)
+    else:
+        transactions = Transaction.objects.all().filter(user=request.user)
+
     current_balance = profile.balance
-    transactions = Transaction.objects.all().order_by('-date')
     income = sum(t.amount for t in transactions if t.type == 'income')
     expense = sum(t.amount for t in transactions if t.type == 'expense')
-
     balance = current_balance if current_balance != 0 else income - expense
 
     # Income vs Expense bar graph
@@ -100,5 +114,6 @@ def dashboard(request):
         'expense': expense,
         'balance': balance,
         'graph': bar_graph_base64,
-        'pie_graph': pie_graph_base64
+        'pie_graph': pie_graph_base64,
+        'view_range': view_range
     })

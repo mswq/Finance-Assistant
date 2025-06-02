@@ -18,7 +18,7 @@
       {% if user.is_authenticated %}
         <form action="{%url 'logout' %}" method="post" a class="nav-link d-inline text-muted-blue">
           {% csrf_token %}
-          <button type="submit" class="nav-link d-inline text-muted-blue">logout</button>
+          <button type="submit" class="nav-link d-inline text-muted-blue">Logout</button>
         </form>
       {% endif %}
     </div>
