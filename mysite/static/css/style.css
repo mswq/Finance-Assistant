@@ -1,0 +1,51 @@
+body {
+  background-color: #F8F5F0;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.text-muted-blue {
+  color: #3988e9 !important;
+}
+
+.hero {
+  background-color: #3988e9;
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  width: 100%;
+  margin-left: calc(-1 * var(--bs-gutter-x, 1.5rem));
+  margin-right: calc(-1 * var(--bs-gutter-x, 1.5rem));
+}
+
+.hero .btn {
+  background-color: #fff;
+  color: #3988e9;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-bordered {
+  border: 2px solid #476D94;
+  background-color: transparent;
+  color: #476D94;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-bordered:hover {
+  background-color: #476D94;
+  color: white;
+}
+
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+

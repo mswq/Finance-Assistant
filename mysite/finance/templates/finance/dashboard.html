@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2 class="text-muted-blue">Dashboard</h2>
+<p><strong>Balance:</strong> ${{ balance }}</p>
+<p><strong>Total Income:</strong> ${{ income }}</p>
+<p><strong>Total Expense:</strong> ${{ expense }}</p>
+
+<h3 class="mt-4">Transactions</h3>
+<ul class="list-group mb-4">
+  {% for t in transactions %}
+    <li class="list-group-item">{{ t.date }} - {{ t.category }} - ${{ t.amount }} - {{ t.description }}</li>
+  {% empty %}
+    <li class="list-group-item">No transactions yet.</li>
+  {% endfor %}
+</ul>
+
+<h3 class="mt-4">Graphs</h3>
+<img src="data:image/png;base64, {{graph}}" class="img-fluid rounded mb-3"/>
+<img src="data:image/png;base64, {{pie_graph}}" class="img-fluid rounded"/>
+
+<a href="{% url 'add_transaction' %}" class="btn btn-success mt-4 me-2">Add Transaction</a>
+<a href="{% url 'update_balance' %}" class="btn btn-outline-secondary mt-4">Update Balance</a>
+{% endblock %}
