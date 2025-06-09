@@ -2,7 +2,7 @@
 {% block title %}Add Transaction{% endblock %}
 {% block content %}
   <div class="mx-auto p-2" style="width: 300px;">
-    <h2 class="text-muted-blue">Add Transaction</h2>
+    <h2>Add Transaction</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}

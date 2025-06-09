@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %}Welcome{% endblock %}
 {% block content %}
-<div class="hero">
+<div>
   {% if user.is_authenticated %}
-  <h1 class="display-4 fw-bold">Welcome {{ user.username }}!</h1>
+  <h1 class="text-muted-blue display-4 fw-bold">Welcome {{ user.username }}!</h1>
   <p class="lead">This is your path to financial clarity.</p>
     <a href="{% url 'dashboard' %}" class="btn btn-outline-dark mt-4">View Dashboard</a>
   {% else %}
@@ -21,21 +21,27 @@
     <div class="card p-4">
       <h5 class="text-muted-blue">Create Your Own Categories</h5>
       <p>Easily log your income and expenses.</p>
+      {% if user.is_authenticated %}
       <a href="{% url 'add_category' %}" class="btn btn-light mt-3">Add Category</a>
+      {% endif %}
     </div>
   </div>
   <div class="col-md-4 mb-4">
     <div class="card p-4">
       <h5 class="text-muted-blue">Add Transactions</h5>
       <p>Use graphs to understand your finances better.</p>
+      {% if user.is_authenticated %}
       <a href="{% url 'add_transaction' %}" class="btn btn-light mt-3">Add Transaction</a>
+      {% endif %}
     </div>
   </div>
   <div class="col-md-4 mb-4">
     <div class="card p-4">
-      <h5 class="text-muted-blue">Update Your Current Balance</h5>
-      <p>Keep your balance up-to-date and goal-focused.</p>
-      <a href="{% url 'update_balance' %}" class="btn btn-light mt-3">Update Balance</a>
+      <h5 class="text-muted-blue">Set Finance Goals</h5>
+      <p>Keep your balance goal-focused.</p>
+      {% if user.is_authenticated %}
+      <a href="{% url 'goals' %}" class="btn btn-light mt-3">Set Goals</a>
+      {% endif %}
     </div>
   </div>
 </div>

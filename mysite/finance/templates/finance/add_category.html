@@ -8,5 +8,14 @@
       {{ form.as_p }}
       <button type="submit" class="btn btn-outline-secondary mt-4">Add Category</button>
     </form>
+    <br/>
+    <br/>
+    <h4>Existing Categories:</h4>
+    {% for c in categories %}
+      <li class="list-group-item"> {{c.name}} </li>
+    {% empty %}
+      <li class="list-group-item">No categories yet</li>
+    {% endfor %}
+
   </div>
 {% endblock %}

@@ -16,7 +16,7 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields =['name']
 
-class BalanceForm(forms.ModelForm):
+class GoalForm(forms.ModelForm):
     class Meta: 
         model = UserProfile
-        fields = ['balance']
+        fields = ['goal']
