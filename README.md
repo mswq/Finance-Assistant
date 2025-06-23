@@ -8,8 +8,12 @@ At its core, Finance Tracker is a web app designed to simplify your money life. 
 - **Categorize with Style**: Add your own spending or income categories, and see them reflected in clean, colorful pie charts.
 - **Visualize by Month**: Browse through past activity, view monthly summaries, and compare trends over time.
 - **Split the Essentials**: Transactions are automatically sorted into income and expenses, giving you a clear view of where your money stands.
-# Some Extra Features
-**Goal Tracking** - Because we all need a little motivation sometimes.
+- **Goal Tracking** - Because we all need a little motivation sometimes.
+
+# Website View
+![image](https://github.com/user-attachments/assets/7e6c6234-d2e5-49f7-b876-81e2d27de7eb)
+![image](https://github.com/user-attachments/assets/55db17d0-4a94-466f-83ed-11336388d321)
+
 
 With the finance goals feature, you can set targets — like staying under $200 on dining out or saving up $1000 over the semester — and Finance Tracker will keep an eye on things. If you’re getting close to your limit, it’ll give you a heads-up so you can course-correct before things go off the rails.
 
